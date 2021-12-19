@@ -1,4 +1,3 @@
-<template>
 <div class="drawer h-20">
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle"> 
   <div class="flex flex-col drawer-content">
@@ -21,10 +20,10 @@
       <div class="flex-none hidden lg:block">
         <ul class="menu horizontal">
           <li>
-            <a class="rounded-btn">Guide</a>
+            <a class="rounded-btn" href="https://guide.spectera-bot.tk">Guide</a>
           </li> 
           <li>
-            <a class="rounded-btn">Config</a>
+            <a class="rounded-btn" href="invalid-uri">Config</a>
           </li>
         </ul>
       </div>
@@ -34,12 +33,11 @@
     <label for="my-drawer-3" class="drawer-overlay"></label> 
     <ul class="p-4 overflow-y-auto menu w-80 bg-base-100">
       <li>
-        <a>Guide</a>
+        <a href="https://guide.spectera-bot.tk">Guide</a>
       </li> 
       <li>
-        <a>Config</a>
+        <a href="invalid-uri">Config</a>
       </li>
     </ul>
   </div>
 </div>
-</template>
