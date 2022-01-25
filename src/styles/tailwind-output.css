@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.13 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -11,7 +11,7 @@
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
-  border-color: currentColor; /* 2 */
+  border-color: #e5e7eb; /* 2 */
 }
 
 ::before,
@@ -61,7 +61,7 @@ hr {
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
-abbr[title] {
+abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
 }
@@ -1078,8 +1078,8 @@ html {
   --af: 0 0% 72.2%;
   --ac: 0 0% 0%;
   --b1: 0 0% 100%;
-  --b2: 0 0% 100%;
-  --b3: 0 0% 100%;
+  --b2: 0 0% 93.3%;
+  --b3: 0 0% 86.7%;
   --bc: 0 0% 0%;
   --n: 0 0% 92.2%;
   --nf: 0 0% 92.2%;
@@ -1248,13 +1248,53 @@ html {
   --tab-border: 1px;
   --tab-radius: 0.5rem;
 }
+
 *, ::before, ::after {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 .btn {
+  border-color: transparent;
   border-color: hsla(var(--n) / var(--tw-border-opacity, 1));
   cursor: pointer;
   display: inline-flex;
@@ -1273,11 +1313,13 @@ html {
   border-radius: var(--rounded-btn, .5rem);
   height: 3rem;
   font-size: .875rem;
+  line-height: 1.25rem;
   line-height: 1em;
   padding-left: 1rem;
   padding-right: 1rem;
   min-height: 3rem;
   font-weight: 600;
+  text-transform: uppercase;
   text-transform: var(--btn-text-case, uppercase);
   border-width: var(--border-btn, 1px);
   -webkit-animation: button-pop var(--animation-btn, .25s) ease-out;
@@ -1362,6 +1404,12 @@ html {
   display: grid;
   overflow: hidden;
 }
+.drawer.drawer-end {
+  direction: rtl;
+}
+.drawer.drawer-end>* {
+  direction: ltr;
+}
 .drawer.drawer-end .drawer-toggle~.drawer-side>.drawer-overlay+* {
   justify-self: end;
   --tw-translate-x: 100%;
@@ -1410,6 +1458,7 @@ html {
   z-index: 10;
   grid-column-start: 1;
   grid-row-start: 1;
+  --tw-translate-x: 0;
   --tw-translate-x: -100%;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -1505,6 +1554,7 @@ html {
   .drawer-mobile.drawer-end {
     grid-auto-columns: auto -webkit-max-content;
     grid-auto-columns: auto max-content;
+    direction: ltr;
   }
 
   .drawer-mobile.drawer-end>.drawer-toggle~.drawer-content {
@@ -1562,6 +1612,7 @@ html {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   height: 3rem;
   font-size: .875rem;
+  line-height: 1.25rem;
   line-height: 2;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1759,7 +1810,7 @@ html {
 .checkbox:focus-visible {
   box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--bc));
 }
-.checkbox:checked {
+.checkbox:checked,.checkbox[checked=true] {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
   background-repeat: no-repeat;
@@ -1895,21 +1946,21 @@ html {
 .menu[class*=p-] li a {
   border-radius: var(--rounded-btn, .5rem);
 }
-.menu li>a,.menu li>span {
+.menu li>:where(a),.menu li>:where(span) {
   padding: .75rem 1.25rem;
   color: currentColor;
 }
-.menu li>a:focus,.menu li>a:hover {
+.menu li>:where(a:focus),.menu li>:where(a:hover) {
   --tw-bg-opacity: 0.1;
   background-color: hsla(var(--bc) / var(--tw-bg-opacity, 1));
 }
-.menu li>a.active {
+.menu li>:where(a.active) {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: hsla(var(--pc) / var(--tw-text-opacity, 1));
 }
-.menu li>a:active {
+.menu li>:where(a:active) {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--pf) / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
@@ -1981,6 +2032,34 @@ html {
     box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset, var(--focus-shadow);
   }
 }
+@-webkit-keyframes rating-pop {
+
+  0% {
+    transform: translateY(-.125em);
+  }
+
+  40% {
+    transform: translateY(-.125em);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes rating-pop {
+
+  0% {
+    transform: translateY(-.125em);
+  }
+
+  40% {
+    transform: translateY(-.125em);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
 .rounded-btn {
   border-radius: var(--rounded-btn, .5rem);
 }
@@ -2008,22 +2087,22 @@ html {
   width: 1024px;
   height: 320px;
 }
-.btn-square.btn-xs {
+.btn-square:where(.btn-xs) {
   height: 1.5rem;
   padding: 0;
   width: 1.5rem;
 }
-.btn-square.btn-sm {
+.btn-square:where(.btn-sm) {
   height: 2rem;
   padding: 0;
   width: 2rem;
 }
-.btn-square.btn-md {
+.btn-square:where(.btn-md) {
   height: 3rem;
   padding: 0;
   width: 3rem;
 }
-.btn-square.btn-lg {
+.btn-square:where(.btn-lg) {
   height: 4rem;
   padding: 0;
   width: 4rem;
@@ -2034,12 +2113,6 @@ html {
 }
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-.ml-3 {
-  margin-left: 0.75rem;
-}
-.ml-10 {
-  margin-left: 2.5rem;
 }
 .ml-5 {
   margin-left: 1.25rem;
@@ -2129,11 +2202,6 @@ html {
 .text-base-content {
   --tw-text-opacity: 1;
   color: hsla(var(--bc) / var(--tw-text-opacity));
-}
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
